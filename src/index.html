@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+    </style>
+  <link rel="stylesheet" href="style.css">
+  <title>Shadow Project</title>
+</head>
+
+<body>
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <div class="vertical-line"></div>
+        <h1>Shadow Project</h1>
+      </div>
+      <nav class="header-right">
+        <a href="#" class="header-link">Shadow project とは</a>
+        <a href="#" class="header-link">立ち向かう方法を知る</a>
+        <a href="#" class="header-link">記録を共有する</a>
+        <a href="#" class="header-link">影を要請する</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero-container">
+    <div class="text-content">
+      <p><span class="highlight">Shadow Project は、</span></p>
+      <p><span class="highlight">全東京都民による</span> </p>
+      <p><span class="highlight">熱中症へ立ち向かうムーブメントである。</span> </p>
+    </div>
+    <div class="call-to-action">
+      <h1>熱中症に立ち向かう</h1>
+      <img src="/images/arrow.png" alt="矢印" class="arrow-image">
+    </div>
+  </div>
+  <div class="map" style="width:100%; height:700px;  background-color:#fb00ff;  margin: 20px 0 20px 0;" alt="地図">
+    <div id="map"></div>
+  </div>
+
+  <section class="menu-container">
+    <a href="#" class="intro-title">What is Shadow Project</a>
+    <div class="menu-paragraph">
+      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    </div>
+    <!-- <div style="width:400px; height:400px;  background-color:#fb00ff;  margin: 20px; margin: 10px auto;">画像</div> -->
+  </section>
+
+  <section class="menu-container">
+    <h1 class="menu-title"><span class="highlight">さぁ熱中症に立ち</span></h1>
+    <h1 class="menu-title"><span class="highlight">向かおう</span></h1>
+  </section>
+
+  <section class="menu-container">
+    <h1 class="menu-text">立ち向かう方法を知る</h1>
+    <div class="menu-paragraph">
+      <p>立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る</p>
+      <p>立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る</p>
+      <p>立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る</p>
+      <p>立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る</p>
+      <p>立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る</p>
+      <p>立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る</p>
+    </div>
+  </section>
+
+  <div class="howto-container">
+    <div class="item1">
+      <img src="/images/image01.png" alt="横断歩道">
+    </div>
+    <div class="item2">
+      <img src="/images/image02.png" alt="扇風機">
+      <p>扇風機を使用の際に気をつけることは？...</p>
+    </div>
+    <div class="item3">
+      <img src="/images/image03.png" alt="水のペットボトル">
+      <p>熱中症対策のポイントは...</p>
+    </div>
+  </div>
+
+  <section class="menu-container">
+    <a href="#" class="intro-title reversed">もっと見る<img src="/images/arrow.png" alt="矢印" class="arrow-image"></a>
+    <div class="menu-paragraph">
+      <p>もっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見る</p>
+      <p>もっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見る</p>
+      <p>もっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見る</p>
+      <p>もっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見る</p>
+      <p>もっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見る</p>
+      <p>もっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見る</p>
+      <p>もっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見る</p>
+    </div>
+    <!-- <div style="width:400px; height:400px;  background-color:#fb00ff;  margin: 20px; margin: 10px auto;">画像</div> -->
+  </section>
+
+  <section class="menu-container">
+    <h1 class="menu-text">記録を共有する</h1>
+    <div class="menu-paragraph">
+      <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
+      <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
+      <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
+      <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
+      <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
+      <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
+      <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
+      <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
+    </div>
+    <div class="img-lists">
+      <div class="shadow-img">
+        <img class="record" src="/images/image02.png" alt="">
+        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      </div>
+      <div class="shadow-img">
+        <img class="record" src="/images/image02.png" alt="">
+        <p>bbbbbbbbbbbb</p>
+      </div>
+      <div class="shadow-img">
+        <img class="record" src="/images/image02.png" alt="">
+        <p>cccccccccccccc</p>
+      </div>
+      <div class="shadow-img">
+        <img class="record" src="/images/image02.png" alt="">
+        <p>ldkfnglndflnkgsldknfgklsjndflkngslkdnflk</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="menu-container">
+    <a href="#" class="intro-title reversed">共有する<img src="/images/arrow.png" alt="矢印" class="arrow-image"></a>
+  </section>
+
+  <section class="menu-container">
+    <h1 class="menu-text">影を要請する</h1>
+    <div class="menu-paragraph">
+      <p>影を要請する影を要請する影を要請する影を要請する影を要請する影を要請する</p>
+      <p>影を要請する影を要請する影を要請する影を要請する影を要請する影を要請する</p>
+      <p>影を要請する影を要請する影を要請する影を要請する影を要請する影を要請する</p>
+      <p>影を要請する影を要請する影を要請する影を要請する影を要請する影を要請する</p>
+      <p>影を要請する影を要請する影を要請する影を要請する影を要請する影を要請する</p>
+      <p>影を要請する影を要請する影を要請する影を要請する影を要請する影を要請する</p>
+    </div>
+    <div class="img-lists">
+      <div class="shadow-img">
+        <img class="record" src="/images/image02.png" alt="">
+        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      </div>
+      <div class="shadow-img">
+        <img class="record" src="/images/image02.png" alt="">
+        <p>bbbbbbbbbbbb</p>
+      </div>
+      <div class="shadow-img">
+        <img class="record" src="/images/image02.png" alt="">
+        <p>cccccccccccccc</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu-container">
+    <a href="#" class="intro-title reversed">要請する<img src="/images/arrow.png" alt="矢印" class="arrow-image"></a>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <a href="#">discord</a>
+        <a href="#">X(旧Twitter)</a>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div class="footer-right">
+        <p>都知事杯 オープンデータハッカソン</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="./js/map.js"></script> <!-- JavaScriptファイルを外部から読み込む -->
+</body>
+
+</html>
