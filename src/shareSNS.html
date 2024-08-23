@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+
+        #SNS-menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: transparent;
+            display: inline-block;
+            z-index: 10;
+        }
+
+        #SNS-menu h1 {
+            background-color: transparent;
+        }
+
+        #SNS-menu span {
+            font-size: 5rem;
+            display: inline-block;
+        }
+
+        .SNS-container {
+            display: inline-block;
+            position: relative;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .SNS-title {
+            font-size: 3rem;
+        }
+
+        .SNS-items {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            border: 5px solid black;
+            border-left: none;
+            display: inline-block;
+            z-index: 10;
+        }
+
+        .SNS-icons {
+            display: flex;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .SNS-icon {
+            width: 6rem;
+        }
+
+        .bk-img {
+            position: relative;
+            border: 0.5rem solid black;
+            width: 50%;
+            height: auto;
+            object-fit: cover;
+            float: right;
+            margin-right: 4rem;
+        }
+
+        form {
+            margin: 1rem;
+        }
+
+        .share-container {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>Shadow Project</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <div class="vertical-line"></div>
+                <a href="./" class="hover header-title">Shadow project</a>
+            </div>
+            <nav class="header-right">
+                <a href="./index.html" class="header-link hover">Shadow project とは</a>
+                <a href="./index.html" class="header-link hover">立ち向かう方法を知る</a>
+                <a href="./shareSNS.html" class="header-link hover">記録を共有する</a>
+                <a href="./index.html" class="header-link hover">影を要請する</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="SNS-container">
+        <img class="bk-img" src="./images/sunShade.png" alt="sunshade">
+        <section class="menu-container" id="SNS-menu">
+            <h1 class="menu-title bigFont"><span class="highlight">立ち向かった記録を</span></h1>
+            <h1 class="menu-title bigFont"><span class="highlight">共有する</span></h1>
+        </section>
+        <div class="SNS-items">
+            <a href="#" class="SNS-title"># Shadow Project <br>でSNSに共有する</a>
+            <div class="SNS-icons">
+                <img class="SNS-icon hover" src="./images/X.png" alt="X">
+                <img class="SNS-icon hover" src="./images/facebook.png" alt="facebook">
+                <img class="SNS-icon hover" src="./images/instagram.png" alt="instagram">
+                <img class="SNS-icon hover" src="./images/LINE.png" alt="LINE">
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-container">
+        <a href="#" class="intro-title hover">Shadow Projectで共有する</a>
+      </section>
+
+    <form action="/submit" method="post" enctype="multipart/form-data">
+        <div class="share-container">
+            <label for="name">ペンネーム</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="share-container">
+            <label for="record">立ち向かった記録</label>
+            <textarea id="record" name="record" required></textarea>
+        </div>
+
+        <div class="share-container">
+            <label for="image">画像のアップロード</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+
+        <button type="submit">投稿する</button>
+    </form>
+
+
+
+
+
+
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <a class="hover" href="#">discord</a>
+                <a class="hover" href="#">X(旧Twitter)</a>
+                <a class="hover" href="#">Facebook</a>
+                <a class="hover" href="#">Instagram</a>
+                <a class="hover" href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-right">
+                <p>都知事杯 オープンデータハッカソン</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="./js/map.js"></script> <!-- JavaScriptファイルを外部から読み込む -->
+</body>
+
+</html>
