@@ -2,13 +2,26 @@
 
 /* common */
 :root {
-  --large-font-size: 32pt;
-  --normal-font-size: 16pt;
+  /* --large-font-size: 32pt; */
+  --large-font-size: 3rem;
+  /* --normal-font-size: 16pt; */
+  --normal-font-size: 1.2rem;
   --main-color: #ccc;
   --font-color: #010937;
   --font-family: 'Noto Sans JP', sans-serif;
   --font-weight-bold: 900;
+  --XL-font-size: 7rem;
 }
+
+* {
+  background-color: var(--main-color);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--normal-font-size);
+  color: var(--font-color);
+  box-sizing: border-box;
+}
+
 
 html {
   margin: 0;
@@ -16,36 +29,47 @@ html {
 }
 
 body {
-  max-width: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--main-color);
-  padding-bottom: 200px;
+  padding-bottom: 10rem;
   /* フッターの高さ以上の値を設定 */
 }
 
 p {
   margin: 0;
   padding: 0;
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--normal-font-size);
-  color: var(--font-color);
 }
 
 a {
+  margin: 0;
+  padding: 0;
   text-decoration: none;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+  vertical-align: text-bottom;
+  object-fit: cover;
+}
+
+.hover:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* 影を追加 */
+}
+
+.item:hover {
+  transform: scale(1.01);
+}
+
 header {
-  padding: 20px;
-  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--main-color);
   z-index: 100;
   box-sizing: border-box;
+  padding: 2rem;
+  position: sticky;
 }
 
 .header-container {
@@ -58,84 +82,73 @@ header {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  margin-left: 10px;
+  margin-left: 1rem;
 }
 
 .header-left h1 {
-  margin-left: 30px;
+  margin-left: 3rem;
 }
 
 .header-right {
   display: flex;
-  gap: 20px;
-}
-
-.header-right a {
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--normal-font-size);
-  color: var(--font-color);
+  gap: 2rem;
+  margin-right: 1rem;
 }
 
 .vertical-line {
-  width: 30px;
-  height: 70px;
+  width: 3rem;
+  height: 6rem;
   background-color: #fb00ff;
   position: absolute;
   top: 0;
-  left: 20px;
+  left: 2rem;
 }
 
 h1 {
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-bold);
   font-size: var(--large-font-size);
-  color: var(--font-color);
   margin: 0;
   padding: 0;
 }
 
-
-
-/* 方針説明*/
 .hero-container {
-  padding-left: 20px;
+  padding-left: 2rem;
 }
 
-.text-content {
-  font-size: var(--normal-font-size);
-  font-family: var(--font-family);
-  font-weight: bold;
+
+.text-content .highlight {
+  font-size: var(--large-font-size);
+  padding-left: 2rem;
+}
+
+
+
+.bigFont .highlight {
+  font-size: var(--XL-font-size);
 }
 
 .highlight {
   background-color: #010937;
   color: #F5F3F3;
-  padding-left: 20px;
 }
 
 .call-to-action {
-  font-size: var(--normal-font-size);
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 2rem;
+}
+
+.call-title {
+  font-size: var(--large-font-size);
 }
 
 .under-line {
-  border-bottom: 5px solid #010937;
+  border-bottom: 0.5rem solid #010937;
 }
 
 .arrow-image {
-  width: 42px;
-  height: 42px;
+  width: 4rem;
+  height: 4rem;
 }
-
-
-
-
-
-
-
 
 
 .menu-container {
@@ -145,24 +158,25 @@ h1 {
   flex: auto;
   margin: 0;
   padding: 0;
-  margin-top: 50px;
+  margin-top: 3rem;
 }
 
 .menu-title {
-  /* font-size: var(--large-font-size); */
-  font-size: 96px;
-  margin: 5px;
+  font-size: var(--large-font-size);
+  margin: 0.5rem;
 }
 
 .menu-paragraph {
-  margin: 50px;
-  text-align: center;
+  margin: 2rem auto;
+  text-align: left;
+  word-wrap: break-word;
+  width: 50%;
 }
 
 .menu-text {
   width: 60%;
   height: 10%;
-  padding: 10px;
+  padding: 1rem;
   background-color: #010937;
   color: #F5F3F3;
   text-align: right;
@@ -171,45 +185,48 @@ h1 {
 .intro-title {
   width: 60%;
   height: 10%;
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-bold);
   font-size: var(--large-font-size);
-  color: var(--font-color);
-  border-bottom: 5px solid #010937;
-  border-top: 5px solid #010937;
-  border-right: 5px solid #010937;
-  padding-right: 10px;
-  color: var(--font-color);
+  border-bottom: 0.5rem solid #010937;
+  border-top: 0.5rem solid #010937;
+  border-right: 0.5rem solid #010937;
   text-align: right;
+  padding: 1rem;
+  padding-right: 1rem;
 }
 
 .intro-title.reversed {
-  width: 60%;
-  height: 10%;
   margin-left: auto;
   text-align: left;
-  font-size: var(--large-font-size);
-  border-left: 5px solid #010937;
+  border-left: 0.5rem solid #010937;
   border-right: none;
-  padding-left: 10px;
+  padding-left: 1rem;
 }
+
 .howto-container {
+  width: calc(100% - 10rem);
   display: grid;
   display: flex;
+  justify-content: center;
   text-align: center;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
-  margin-bottom: 100px;
+  gap: 2rem;
+  margin: 0 auto;
 }
 
 
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+
+
+
+.item {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  text-align: left;
 }
 
-
+.item.p {
+  margin: 1rem;
+}
 
 .img-lists {
   display: flex;
@@ -218,24 +235,24 @@ img {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 20px;
+  gap: 2rem;
 }
 
-.shadow-img {
-  display: flex;
-  flex-direction: column;
-}
 
-.shadow-img p {
-  /* 単語の途中で改行を許可するために要素の大きさを変数に変更する */
-  width: 200px;
+.item p {
+  width: 20rem;
   word-wrap: break-word;
   font-size: var(--normal-font-size);
 }
 
+#hoge {
+  width: 50rem;
+  font-size: var(--large-font-size);
+}
+
 .record {
-  width: 200px;
-  height: 200px;
+  width: 20rem;
+  height: 20rem;
 }
 
 
@@ -250,55 +267,98 @@ footer {
 }
 
 .footer-container {
-  border-top: 5px solid #010937;
-  /* 上部に2pxの濃い青色の実線 */
+  border-top: 0.5rem solid #010937;
   display: flex;
   align-items: center;
   margin: 0 auto;
   flex-direction: row;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .footer-left {
   display: flex;
-  gap: 20px;
+  gap: 1rem;
 }
 
 .footer-left a {
   font-family: var(--font-family);
   color: var(--font-color);
   font-weight: bold;
-  margin-left: 20px;
+  margin-left: 1rem;
 }
 
 .footer-right p {
   font-family: var(--font-family);
   font-weight: bold;
   color: var(--font-color);
-  padding: 20px;
+  padding: 1rem;
 }
 
-.custom-icon {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: gray;
-  border: 2px solid white;
-  text-align: center;
-  line-height: 20px;
-  font-size: 12px;
-  color: white;
-}
 
-.wbgt-low {
-  background-color: green;
-}
+@media (max-width: 768px) {
 
-.wbgt-medium {
-  background-color: yellow;
-  color: black;
-}
+  /* 画面幅が768px以下の場合 */
+  :root {
+    /* --large-font-size: 32pt; */
+    --large-font-size: 1.5rem;
+    /* --normal-font-size: 16pt; */
+    --normal-font-size: 1rem;
+    --main-color: #ccc;
+    --font-color: #010937;
+    --font-family: 'Noto Sans JP', sans-serif;
+    --font-weight-bold: 900;
+  }
 
-.wbgt-high {
-  background-color: red;
+  .bigFont .highlight {
+    font-size: 2rem;
+  }
+
+  .intro-title {
+    width: 100%;
+    font-size: var(--large-font-size);
+    border: 0.5rem solid #010937;
+    padding-right: 1rem;
+    text-align: right;
+  }
+
+  .intro-title.reversed {
+    width: 100%;
+    margin-left: auto;
+    text-align: left;
+    font-size: var(--large-font-size);
+    padding-left: 1rem;
+  }
+
+  .menu-text {
+    width: 100%;
+    height: 10%;
+    padding: 1rem;
+    background-color: #010937;
+    color: #F5F3F3;
+    text-align: center;
+  }
+
+  img {
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .arrow-image {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .vertical-line {
+    display: none;
+  }
+
+  header {
+    display: none;
+  }
+
+  footer {
+    display: none;
+  }
 }
