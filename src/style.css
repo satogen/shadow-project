@@ -293,6 +293,79 @@ footer {
 }
 
 
+/* -----shareSNS.html----- */
+#SNS-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: inline-block;
+  z-index: 10;
+}
+
+#SNS-menu h1 {
+  background-color: transparent;
+}
+
+#SNS-menu span {
+  font-size: 5rem;
+  display: inline-block;
+}
+
+.SNS-container {
+  display: inline-block;
+  position: relative;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.SNS-title {
+  font-size: 3rem;
+}
+
+.SNS-items {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border: 5px solid black;
+  border-left: none;
+  display: inline-block;
+  z-index: 10;
+}
+
+.SNS-icons {
+  display: flex;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.SNS-icon {
+  width: 6rem;
+}
+
+.bk-img {
+  position: relative;
+  border: 0.5rem solid black;
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  float: right;
+  margin-right: 4rem;
+}
+
+form {
+  margin: 1rem;
+}
+
+.share-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+
 @media (max-width: 768px) {
 
   /* 画面幅が768px以下の場合 */
