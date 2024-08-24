@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Custom Pin</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 500px;
+        }
+
+        .custom-pin {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 5px solid;
+            box-sizing: border-box;
+        }
+
+        .custom-pin::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 20px solid;
+        }
+
+        .inner-image {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .inner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* ピンク色のピン */
+        .pin-fa00c8 {
+            background-color: #FA00C8;
+            border-color: #FA00C8;
+        }
+
+        .pin-fa00c8::after {
+            border-top-color: #FA00C8;
+        }
+
+        /* 青色のピン */
+        .pin-010937 {
+            background-color: #010937;
+            border-color: #010937;
+        }
+
+        .pin-010937::after {
+            border-top-color: #010937;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+    // 地図を初期化する
+    var map = L.map('map').setView([35.6895, 139.6917], 13); // 東京の緯度経度
+
+    // OpenStreetMapタイルを追加する
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
+
+    // post_typeによってピンの色を変更する
+    let post_type = "type1"; // "type1" または "type2"
+
+    // クラス名を設定する関数
+    function getPinClass(post_type) {
+        if (post_type === "type1") {
+            return 'pin-fa00c8'; // ピンク色
+        } else if (post_type === "type2") {
+            return 'pin-010937'; // 青色
+        }
+    }
+
+    // ピンのクラス名を取得
+    let pinClass = getPinClass(post_type);
+
+    // カスタムピンのHTMLを生成する
+    var customPinHtml = `
+        <div class="custom-pin ${pinClass}">
+            <div class="inner-image">
+                <img src="/images/image01.png" alt="Pin Image">
+            </div>
+        </div>
+    `;
+
+    // カスタムアイコンを作成する
+    var customIcon = L.divIcon({
+        html: customPinHtml,
+        className: '', // 追加のクラス名を設定しない
+        iconSize: [50, 70], // アイコンのサイズ
+        iconAnchor: [25, 70], // アイコンのアンカー（ピンの尖った部分が基準になるように）
+        popupAnchor: [0, -70] // ポップアップのアンカー
+    });
+
+    // カスタムピンを地図上に追加する
+    L.marker([35.6895, 139.6917], { icon: customIcon }).addTo(map);
+</script>
+
+</body>
+</html>
