@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunderforest Mobile Atlas Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        // 赤色のレイヤーを作成
+        var redLayer = L.tileLayer('', {
+            attribution: 'Red Layer',
+            opacity: 0.7,
+            pane: 'overlayPane',
+            className: 'red-layer'
+        });
+
+        // Custom CSS to make the red layer
+        L.DomUtil.create('style', '', document.head).innerHTML = `
+            .red-layer {
+                background-color: red;
+                opacity: 1;
+                z-index: -1;
+            }
+        `;
+
+        // 透過的な地図レイヤーを作成
+        var Stadia_AlidadeSmooth = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
+            minZoom: 0,
+            maxZoom: 20,
+            attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            ext: 'png8'  // 'png' または 'png8' で透過性を持つタイルを使用
+        });
+
+        var map = L.map('map', {
+            center: [35.6895, 139.6917], // Tokyo, Japan
+            zoom: 12,
+            layers: [Stadia_AlidadeSmooth, redLayer]
+        });
+    </script>
+
+</body>
+</html>
