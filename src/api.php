@@ -52,20 +52,21 @@ foreach ($points as $locationName => $pointNumber) {
         $columns = str_getcsv($row);
         $date = $columns[0];
         $time = $columns[1];
-        $wbgtValues = array_slice($columns, 2);
+        $wbgtValue = array_slice($columns, 2);
 
         // 行の日時を作成
         $rowDateTime = new DateTime("$date $time", new DateTimeZone('Asia/Tokyo'));
+        // echo implode($wbgtValues);
 
         // 行の日時が現在の日時よりも前で、かつ最も新しい場合
-        if ($rowDateTime <= $currentDateTime && 
+        if ($rowDateTime <= $currentDateTime && $wbgtValue[0] != "" &&
             ($latestDateTime === null || $rowDateTime > $latestDateTime)) {
-            $latestValues = $wbgtValues;
+            $latestValues = $wbgtValue;
             $latestDateTime = $rowDateTime;
         }
     }
 
-    if ($latestValues !== null) {
+    if ($latestValues[0] != "") {
         // 結果を追加
         $results[] = [
             'location' => $locationName,

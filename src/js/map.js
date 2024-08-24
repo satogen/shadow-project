@@ -1,5 +1,38 @@
+let lat, lng;
+
+// なぜか取得できない現在位置
+// 現在地を取得して表示
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
+    });
+} else {
+    alert("Geolocation is not supported by this browser.");
+}
+
+// サンプル値
+lat = 35.733504;
+lng = 139.460608;
+
 // マップの表示位置を設定
-const map = L.map('map').setView([35.73297522404231, 139.48296616562493], 10);
+let map = L.map('map')
+let subMap = L.map('sub-map', {
+    zoomControl: false, // 拡大縮小ボタンを非表示にする
+    attributionControl: false // 著作権表示も非表示にする場合
+}).setView([35.73297522404231, 139.48296616562493], 8);
+
+
+function setMainMap(){
+    // 透過的な地図レイヤーを作成
+    var Stadia_AlidadeSmooth = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
+        minZoom: 0,
+        maxZoom: 20,
+        attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        ext: 'png'  
+    });
+    Stadia_AlidadeSmooth.addTo(map);
+}
 
 function absolutePath(path) {
     var e = document.createElement('span');
@@ -53,98 +86,69 @@ function interpolateValue(knownPoints, targetPoint) {
     return weightedSum / totalWeight;
 }
 
-function reflect_map(){
-    // GeoJSONファイルを読み込む
-    fetch('/geojson/tokyo.geojson')
-        .then(response => response.json())
-        .then(geojson => {
+function getColor(value) {
+    return value >= 31 ? '#FA00C8' :
+            value >= 28 ? '#DC96C8' :
+            value >= 25 ? '#F0E6CB' :
+            value >= 21  ? '#323246' :
+                        '#010937';
+}
 
-            // ポリゴンの色付け関数
-            function getColor(value) {
-                return value >= 31 ? '#FA00C8' :
-                        value >= 28 ? '#DC96C8' :
-                        value >= 25 ? '#F0E6CB' :
-                        value >= 21  ? '#323246' :
-                                    '#010937';
+function createGeoJsonLayer(geojsonData) {
+    return L.geoJSON(geojsonData, {
+        filter: function(feature) {
+            // "所属未定地" のポリゴンを除外
+            return feature.properties.N03_004 !== "所属未定地";
+        },
+        style: function(feature) {
+            let match = null;
+            if(feature.properties.N03_003 === "西多摩郡"){
+                match = parsedCsvData.find(point => 
+                point.citynNme2 === feature.properties.N03_004
+            );
+            }else{
+                match = parsedCsvData.find(point => 
+                point.citynNme1 === feature.properties.N03_004
+                );                            
             }
 
-            // 各ポリゴンに対して処理を行う
-            L.geoJSON(geojson, {
-                // フィルター条件を指定
-                filter: function(feature) {
-                    // "所属未定地" のポリゴンを除外
-                    return feature.properties.N03_004 !== "所属未定地";
-                },
-                style: function(feature) {
-                    let match = null;
-                    if(feature.properties.N03_003 === "西多摩郡"){
-                        match = parsedCsvData.find(point => 
-                        point.citynNme2 === feature.properties.N03_004
-                    );
-                    }else{
-                        match = parsedCsvData.find(point => 
-                        point.citynNme1 === feature.properties.N03_004
-                        );                            
-                    }
-
-                    // 色の設定
-                    return {
-                        fillColor: match ? getColor(match.value) : '#FFFFFF',
-                        weight: 2,
-                        opacity: 1,
-                        color: border_color,
-                        dashArray: '0',
-                        fillOpacity: 1
-                    };
-                },
-                onEachFeature: function(feature, layer) {
-                    // ポリゴンに情報のポップアップを追加
-                    const match = parsedCsvData.find(point => 
-                        point.citynNme1 === feature.properties.citynNme1 &&
-                        point.citynNme2 === feature.properties.citynNme2
-                    );
-                }
-            }).addTo(map);
-    })
-}
-
-// 東京の色を決定する関数
-function getColor(name) {
-    return name === '東京都' ? '#010937' : '#7c7c7c';
-}
-
-// // OpenStreetMapタイルを追加
-// L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-// attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-// }).addTo(map);
-
-// GeoJSONファイルを読み込んでレイヤーを追加
-fetch('/geojson/prefectures.geojson')
-    .then(response => response.json())
-    .then(geojsonData => {
-        // スタイル設定関数
-        function style(feature) {
-        return {
-            fillColor: getColor(feature.properties.name),
-            weight: 2,
-            opacity: 1,
-            color: border_color,
-            dashArray: '0',
-            fillOpacity: 1
-        };
-    }
-
-    // GeoJSONレイヤーを追加
-    L.geoJSON(geojsonData, {
-        style: style,
-        onEachFeature: function (feature, layer) {
-            layer.bindPopup(feature.properties.name);
+            // 色の設定
+            return {
+                fillColor: match ? getColor(match.value) : '#000000',
+                weight: 2,
+                opacity: 0.5,
+                color: border_color,
+                dashArray: '0',
+                fillOpacity: 0.5
+            };
         }
-    }).addTo(map);
-    })
-    .catch(error => {
-        console.error('GeoJSONファイルの読み込み中にエラーが発生しました:', error);
-});
+    });
+}
+
+function reflect_map(){
+    fetch('/geojson/tokyo.geojson')
+    .then(response => response.json())
+    .then(geojson => {
+        
+        // initialMapSetting();
+        setMainMap();
+
+        geojsonLayer = createGeoJsonLayer(geojson);
+        geojsonLayer.addTo(map); // メイン地図の追加
+        geojsonLayer.addTo(subMap); // サブ地図の追加
+
+        map = map.setView([lat, lng], 15);
+        
+        // サブの地図に現在地にポイントを追加
+        L.marker([lat, lng], { 
+            icon: L.divIcon({
+                className: 'custom-icon', // CSSクラスを指定
+                html: '<div class="circle"></div>',
+                iconSize: [30, 30], // アイコンのサイズ
+                iconAnchor: [15, 15] // アイコンのアンカー（中央を基準にするためにサイズの半分）
+            })
+        }).addTo(subMap);    })
+}
 
 // バックエンドからデータの取得
 fetch(`${window.location.origin}/api.php`)

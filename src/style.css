@@ -14,7 +14,7 @@
 }
 
 * {
-  background-color: var(--main-color);
+  /* background-color: var(--main-color); */
   font-family: var(--font-family);
   font-weight: var(--font-weight-bold);
   font-size: var(--normal-font-size);
@@ -33,6 +33,7 @@ body {
   padding: 0;
   padding-bottom: 10rem;
   /* フッターの高さ以上の値を設定 */
+  background-color: var(--main-color);
 }
 
 p {
@@ -70,6 +71,7 @@ header {
   box-sizing: border-box;
   padding: 2rem;
   position: sticky;
+  background-color: var(--main-color);
 }
 
 .header-container {
