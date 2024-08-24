@@ -146,9 +146,9 @@
     </form> -->
 
 
-    <form action="upload.php" method="post" enctype="multipart/form-data"  id="uploadForm">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
         <input type="file" name="image" accept="image/*">
-        <input type="submit" value="アップロード" >
+        <input type="submit" value="アップロード">
     </form>
 
     <div id="message" style="display: none;"></div>
@@ -163,7 +163,7 @@
                 <a class="hover" href="#">Instagram</a>
                 <a class="hover" href="#">Privacy Policy</a>
             </div>
-            <div class="footer-right">
+            <div class="footer-right" id="uploadForm">
                 <p>都知事杯 オープンデータハッカソン</p>
             </div>
         </div>
@@ -183,8 +183,19 @@
             })
                 .then(response => response.text())
                 .then(data => {
-                    location.href = 'index.html'; 
-                    // alert(data)
+                    // アップロード成功時の処理
+                    console.log(data)
+                    if (data === "success") { // PHP側から"success"が返ってきた場合のみ成功とみなす
+                        document.getElementById('message').textContent = "ファイルが正常にアップロードされました。";
+                        document.getElementById('message').style.display = 'block';
+
+                        setTimeout(function () {
+                            document.getElementById('message').style.display = 'none';
+                        }, 3000);
+                    } else {
+                        // エラーメッセージを表示
+                        alert(data);
+                    }
                 })
                 .catch(error => {
                     // アップロード失敗時の処理
