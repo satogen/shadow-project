@@ -10,10 +10,6 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
-        #map {
-            height: 100%;
-            width: 100%;
-        }
 
         #SNS-menu {
             position: absolute;
@@ -126,33 +122,36 @@
 
     <section class="menu-container">
         <a href="#" class="intro-title hover">Shadow Projectで共有する</a>
-      </section>
+    </section>
 
-    <form action="/submit" method="post" enctype="multipart/form-data">
+
+
+    <!-- <form action="upload.php" method="post" enctype="multipart/form-data">
         <div class="share-container">
-            <label for="name">ペンネーム</label>
-            <input type="text" id="name" name="name" required>
+            <label for="name">ペンネーム:</label>
+            <input type="text" id="name" name="name">
         </div>
 
         <div class="share-container">
-            <label for="record">立ち向かった記録</label>
-            <textarea id="record" name="record" required></textarea>
+            <label for="record">立ち向かった記録:</label>
+            <textarea id="record" name="record" rows="4"></textarea>
         </div>
 
         <div class="share-container">
-            <label for="image">画像のアップロード</label>
-            <input type="file" id="image" name="image" accept="image/*" required>
+            <label for="image">画像のアップロード:</label>
+            <input type="file" id="image" name="image" accept="image/*">
         </div>
 
         <button type="submit">投稿する</button>
+    </form> -->
+
+
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*">
+        <input type="submit" value="アップロード">
     </form>
 
-
-
-
-
-
-
+    <div id="message" style="display: none;"></div>
 
 
     <footer>
@@ -164,13 +163,47 @@
                 <a class="hover" href="#">Instagram</a>
                 <a class="hover" href="#">Privacy Policy</a>
             </div>
-            <div class="footer-right">
+            <div class="footer-right" id="uploadForm">
                 <p>都知事杯 オープンデータハッカソン</p>
             </div>
         </div>
     </footer>
+
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="./js/map.js"></script> <!-- JavaScriptファイルを外部から読み込む -->
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch('upload.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    // アップロード成功時の処理
+                    console.log(data)
+                    if (data === "success") { // PHP側から"success"が返ってきた場合のみ成功とみなす
+                        document.getElementById('message').textContent = "ファイルが正常にアップロードされました。";
+                        document.getElementById('message').style.display = 'block';
+
+                        setTimeout(function () {
+                            document.getElementById('message').style.display = 'none';
+                        }, 3000);
+                    } else {
+                        // エラーメッセージを表示
+                        alert(data);
+                    }
+                })
+                .catch(error => {
+                    // アップロード失敗時の処理
+                    alert('エラーが発生しました: ' + error);
+                });
+        });
+    </script>
+
 </body>
 
 </html>
