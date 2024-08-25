@@ -32,8 +32,8 @@ body {
   margin: 0;
   padding: 0;
   padding-bottom: 10rem;
-  /* フッターの高さ以上の値を設定 */
   background-color: var(--main-color);
+  /* フッターの高さ以上の値を設定 */
 }
 
 p {
@@ -87,7 +87,7 @@ header {
   margin-left: 1rem;
 }
 
-.header-title{
+.header-title {
   margin: 0;
   padding: 0;
   margin-left: 3rem;
@@ -292,6 +292,146 @@ footer {
   font-weight: bold;
   color: var(--font-color);
   padding: 1rem;
+}
+
+
+/* -----shareSNS.html----- */
+#SNS-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: inline-block;
+  z-index: 10;
+}
+
+#SNS-menu h1 {
+  background-color: transparent;
+}
+
+#SNS-menu span {
+  font-size: 5rem;
+  display: inline-block;
+}
+
+.SNS-container {
+  display: inline-block;
+  position: relative;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.SNS-title {
+  font-size: 3rem;
+}
+
+.SNS-items {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border: 5px solid black;
+  border-left: none;
+  display: inline-block;
+  z-index: 10;
+}
+
+.SNS-icons {
+  display: flex;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.SNS-icon {
+  width: 6rem;
+}
+
+.bk-img {
+  position: relative;
+  border: 0.5rem solid black;
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  float: right;
+  margin-right: 4rem;
+}
+
+form {
+  margin: 1rem;
+}
+
+
+/* mapのpin周り */
+#map {
+  height: 500px;
+}
+
+.custom-pin {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid;
+  box-sizing: border-box;
+}
+
+.custom-pin::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid;
+}
+
+.inner-image {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.inner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ピンク色のピン */
+.pin-fa00c8 {
+  background-color: #FA00C8;
+  border-color: #FA00C8;
+}
+
+.pin-fa00c8::after {
+  border-top-color: #FA00C8;
+}
+
+/* 青色のピン */
+.pin-010937 {
+  background-color: #010937;
+  border-color: #010937;
+}
+
+.pin-010937::after {
+  border-top-color: #010937;
+}
+
+
+
+.share-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 

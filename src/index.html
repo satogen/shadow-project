@@ -9,42 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    .map{
-      text-align: center;
-    }
-    
-    #main-map{
-      position: relative;
-      display: inline-block;
-    }
-
     #map {
       height: 50rem;
-      width: 50rem;
+      width: 90%;
       margin: 0 auto;
       z-index: 10;
     }
-
-    #sub-map {
-      height: 25vh;
-      width: 50vh;
-      position: absolute;
-      bottom: 30px;
-      right: 30px;
-      border: 4px solid #333;
-      z-index: 99;
-      background-color: #ccc;
-      box-shadow: 4px 4px;
-    }
-
-    .custom-icon .circle {
-      background-color: black;
-      border-radius: 50%;
-      width: 10px;
-      height: 10px;
-      display: inline-block;
-    }
-    </style>
+  </style>
   <link rel="stylesheet" href="./style.css">
   <title>Shadow Project</title>
 </head>
@@ -52,7 +23,7 @@
 <body>
   <header>
     <div class="header-container">
-      
+
       <div class="header-left">
         <div class="vertical-line"></div>
         <a href="./" class="hover header-title">Shadow project</a>
@@ -78,12 +49,8 @@
         <img src="images/arrow.png" alt="矢印" class="arrow-image"></a>
     </div>
   </div>
-  <div class="map">
-    <div id="main-map">
-      <div id="map"></div>
-      <div id="sub-map"></div>
-    </div>
-  </div>
+
+  <div id="map"></div>
 
   <section class="menu-container">
     <a href="#" class="intro-title hover">What is Shadow Project</a>
@@ -135,8 +102,8 @@
     <div class="menu-paragraph">
       <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
       <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
-
     </div>
+
     <div class="img-lists">
       <div class="item hover">
         <img class="record" src="./images/image02.png" alt="">
@@ -198,8 +165,9 @@
     </div>
   </footer>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="./js/const.js"></script> <!-- JavaScriptファイルを外部から読み込む -->
   <script src="./js/map.js"></script> <!-- JavaScriptファイルを外部から読み込む -->
+  <script src="./js/mapPinLoder.js"></script>
+  <script></script>
 </body>
 
 </html>

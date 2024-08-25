@@ -9,81 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-
-        #SNS-menu {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: transparent;
-            display: inline-block;
-            z-index: 10;
-        }
-
-        #SNS-menu h1 {
-            background-color: transparent;
-        }
-
-        #SNS-menu span {
-            font-size: 5rem;
-            display: inline-block;
-        }
-
-        .SNS-container {
-            display: inline-block;
-            position: relative;
-            margin-top: 1rem;
-            width: 100%;
-        }
-
-        .SNS-title {
-            font-size: 3rem;
-        }
-
-        .SNS-items {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            border: 5px solid black;
-            border-left: none;
-            display: inline-block;
-            z-index: 10;
-        }
-
-        .SNS-icons {
-            display: flex;
-            padding: 1rem;
-            gap: 2rem;
-        }
-
-        .SNS-icon {
-            width: 6rem;
-        }
-
-        .bk-img {
-            position: relative;
-            border: 0.5rem solid black;
-            width: 50%;
-            height: auto;
-            object-fit: cover;
-            float: right;
-            margin-right: 4rem;
-        }
-
-        form {
-            margin: 1rem;
-        }
-
-        .share-container {
-            display: flex;
-            flex-direction: column;
-            width: 30%;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-    </style>
     <link rel="stylesheet" href="style.css">
     <title>Shadow Project</title>
+
 </head>
 
 <body>
@@ -124,34 +52,33 @@
         <a href="#" class="intro-title hover">Shadow Projectで共有する</a>
     </section>
 
-
-
-    <!-- <form action="upload.php" method="post" enctype="multipart/form-data">
+    <form action="upload.php" method="post" enctype="multipart/form-data" id="uploadForm" accept-charset="UTF-8">
         <div class="share-container">
             <label for="name">ペンネーム:</label>
-            <input type="text" id="name" name="name">
+            <input type="text" name="pen_name">
         </div>
 
         <div class="share-container">
             <label for="record">立ち向かった記録:</label>
-            <textarea id="record" name="record" rows="4"></textarea>
+            <textarea name="post_record" rows="4"></textarea>
         </div>
 
         <div class="share-container">
             <label for="image">画像のアップロード:</label>
-            <input type="file" id="image" name="image" accept="image/*">
+            <input type="file" name="image" accept="image/*">
         </div>
 
-        <button type="submit">投稿する</button>
-    </form> -->
 
+        <div class="share-container">
+            <input type="text" name="lat" placeholder="緯度">
+            <input type="text" name="lon" placeholder="経度">
+        </div>
 
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*">
-        <input type="submit" value="アップロード">
+        <div class="share-container">
+            <input type="submit" value="アップロード">
+        </div>
     </form>
 
-    <div id="message" style="display: none;"></div>
 
 
     <footer>
@@ -163,46 +90,15 @@
                 <a class="hover" href="#">Instagram</a>
                 <a class="hover" href="#">Privacy Policy</a>
             </div>
-            <div class="footer-right" id="uploadForm">
+            <div class="footer-right">
                 <p>都知事杯 オープンデータハッカソン</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="./js/map.js"></script> <!-- JavaScriptファイルを外部から読み込む -->
-    <script>
-        document.getElementById('uploadForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const formData = new FormData(this);
-
-            fetch('upload.php', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.text())
-                .then(data => {
-                    // アップロード成功時の処理
-                    console.log(data)
-                    if (data === "success") { // PHP側から"success"が返ってきた場合のみ成功とみなす
-                        document.getElementById('message').textContent = "ファイルが正常にアップロードされました。";
-                        document.getElementById('message').style.display = 'block';
-
-                        setTimeout(function () {
-                            document.getElementById('message').style.display = 'none';
-                        }, 3000);
-                    } else {
-                        // エラーメッセージを表示
-                        alert(data);
-                    }
-                })
-                .catch(error => {
-                    // アップロード失敗時の処理
-                    alert('エラーが発生しました: ' + error);
-                });
-        });
-    </script>
+    <!-- <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> -->
+    <!-- <script src="./js/map.js"></script> -->
+    <script src="./js/upload.js"></script>
 
 </body>
 
