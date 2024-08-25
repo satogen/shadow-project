@@ -13,6 +13,6 @@ sequenceDiagram
     HTML->>PHP: 位置情報，名前，メモを投稿
     PHP->>内部ストレージ:  uploads/JSONに画像保存＋data.jsonに追記
     PHP->>JS: レスポンス
-    JS->>JS: data.jsonを読み取り
+    JS->>内部ストレージ data.jsonを読み取り
     JS->>HTML: 地図のピンを更新
 ```
