@@ -1,0 +1,18 @@
+[
+    {
+        "img_name": "arrow.png",
+        "pen_name": "古川",
+        "post_record": "楽しかった東京タワー．でも暑い",
+        "post_type": "type1",
+        "lat": 35.714064,
+        "lon": 139.797762
+    },
+    {
+        "img_name": "facebook.png",
+        "pen_name": "いぶき",
+        "post_record": "新宿御苑暑い",
+        "post_type": "type1",
+        "lat": 35.685175,
+        "lon": 139.707708
+    }
+]
