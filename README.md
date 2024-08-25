@@ -1,7 +1,7 @@
 #　立ち上げ
 docker-compose up --build
 
-# シーケンス図
+## シーケンス図
 
 ```mermaid
 sequenceDiagram
