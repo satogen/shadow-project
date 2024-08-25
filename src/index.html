@@ -8,16 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <style>
-    #map {
-      height: 50rem;
-      width: 90%;
-      margin: 0 auto;
-      z-index: 10;
-    }
-  </style>
+
   <link rel="stylesheet" href="./style.css">
-  <title>Shadow Project</title>
+  <title>Cool Wave Project</title>
 </head>
 
 <body>
@@ -26,11 +19,11 @@
 
       <div class="header-left">
         <div class="vertical-line"></div>
-        <a href="./" class="hover header-title">Shadow project</a>
+        <a href="./" class="hover header-title">Cool Wave Project</a>
       </div>
 
       <nav class="header-right">
-        <a href="./index.html" class="header-link hover">Shadow project とは</a>
+        <a href="./index.html" class="header-link hover">Cool Wave Project とは</a>
         <a href="./index.html" class="header-link hover">立ち向かう方法を知る</a>
         <a href="./shareSNS.html" class="header-link hover">記録を共有する</a>
         <a href="./index.html" class="header-link hover">影を要請する</a>
@@ -40,7 +33,7 @@
 
   <div class="hero-container">
     <div class="text-content">
-      <p><span class="highlight">Shadow Project は、</span></p>
+      <p><span class="highlight">Cool Wave Project は、</span></p>
       <p><span class="highlight">全東京都民による</span> </p>
       <p><span class="highlight">熱中症へ立ち向かうムーブメントである。</span> </p>
     </div>
@@ -50,12 +43,18 @@
     </div>
   </div>
 
-  <div id="map"></div>
+  <div class="map">
+    <div id="main-map">
+      <div id="map"></div>
+      <div id="sub-map"></div>
+    </div>
+  </div>
 
   <section class="menu-container">
-    <a href="#" class="intro-title hover">What is Shadow Project</a>
-    <div class="menu-paragraph">
-      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    <a href="#" class="intro-title hover">What is Cool Wave Project</a>
+    <div class="what-cool-project">
+        <img src="./images/what_is_cool.png" alt="what_is_cool" id="what-cool-wave">
+        <img src="./images/cool-project-logo.png" alt="cool-project-logo" id="what-cool-project-logo">
     </div>
   </section>
 
@@ -165,6 +164,7 @@
     </div>
   </footer>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="./js/const.js"></script> <!-- JavaScriptファイルを外部から読み込む -->
   <script src="./js/map.js"></script> <!-- JavaScriptファイルを外部から読み込む -->
   <script src="./js/mapPinLoder.js"></script>
   <script></script>

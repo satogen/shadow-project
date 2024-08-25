@@ -12,8 +12,8 @@ if (navigator.geolocation) {
 }
 
 // サンプル値
-lat = 35.733504;
-lng = 139.460608;
+lat = 35.685175;
+lng = 139.707708;
 
 // マップの表示位置を設定
 let map = L.map('map')
