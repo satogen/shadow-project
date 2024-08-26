@@ -1,5 +1,7 @@
-#　立ち上げ
+#　Docker 立ち上げ
+```
 docker-compose up --build
+```
 
 ## シーケンス図
 
