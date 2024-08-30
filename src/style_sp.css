@@ -1,0 +1,152 @@
+/* PC表示時のスタイル */
+@media (min-width: 601px) {
+
+  /* 画面幅が601px以上の場合に適用 */
+  .sp-menu,
+  .overlay {
+    display: none;
+    /* ハンバーガーメニューとオーバーレイを非表示 */
+  }
+}
+
+@media (max-width: 600px) {
+
+  :root {
+    --large-font-size: 16pt;
+    --normal-font-size: 8pt;
+    --main-color: #ccc;
+    --font-color: #010937;
+    --font-family: 'Noto Sans JP', sans-serif;
+    --font-weight-bold: 900;
+    --XL-font-size: 24px;
+  }
+
+  header {
+    display: flex;
+  }
+
+  .header-right {
+    display: none;
+  }
+
+  .sp-menu {
+    margin-left: auto;
+  }
+
+  .sp-menu #open {
+    font-size: 32px;
+    line-height: 64px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .sp-menu #open.hide {
+    display: none;
+  }
+
+  main {
+    padding: 0 16px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    padding: 64px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+    z-index: 999;
+  }
+
+  .overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .overlay #close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 32px;
+    cursor: pointer;
+  }
+
+  .overlay ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .overlay li {
+    margin-top: 24px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .3s, transform .3s;
+  }
+
+  .overlay.show li {
+    opacity: 1;
+    transform: none;
+  }
+
+  .overlay.show li:nth-child(1) {
+    transition-delay: .1s;
+  }
+
+  .overlay.show li:nth-child(2) {
+    transition-delay: .2s;
+  }
+
+  .overlay.show li:nth-child(3) {
+    transition-delay: .3s;
+  }
+
+  .overlay.show li:nth-child(4) {
+    transition-delay: .4s;
+  }
+
+  #map {
+    width: 300px;
+    height: 300px;
+  }
+
+
+  #sub-map {
+    display: none;
+  }
+
+  .hero-container {
+    width: 100%;
+  }
+
+  .howto-container {
+    display: none;
+  }
+
+  #what-cool-project-logo {
+    display: none;
+  }
+
+  #what-cool-wave{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .menu-paragraph {
+    width: 90%;
+  }
+
+  .menu-text {
+    width: 80%;
+  }
+
+  .intro-title {
+    width: 80%;
+  }
+}

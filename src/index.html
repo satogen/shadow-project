@@ -4,43 +4,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="aos-master/dist/aos.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./mapLayout.css">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style_sp.css">
   <title>Cool Wave Project</title>
 </head>
 
 <body>
   <header>
     <div class="header-container">
-
       <div class="header-left">
-        <div class="vertical-line"></div>
-        <a href="./" class="hover header-title">Cool Wave Project</a>
+        <img src="./images/cool-project-logo.png" alt="cool-project-logo" style="height: 60px; padding: 5px">
       </div>
 
       <nav class="header-right">
         <a href="./index.html" class="header-link hover">Cool Wave Project とは</a>
-        <a href="./index.html" class="header-link hover">立ち向かう方法を知る</a>
+        <a href="./parasol.html" class="header-link hover">立ち向かう方法を知る</a>
         <a href="./shareSNS.html" class="header-link hover">記録を共有する</a>
-        <a href="./index.html" class="header-link hover">影を要請する</a>
+        <a href="./shadow_request.html" class="header-link hover">影を要請する</a>
       </nav>
+    </div>
+
+    <div class="sp-menu">
+      <span class="material-icons" id="open">menu</span>
     </div>
   </header>
 
+  <div class="overlay">
+    <span class="material-icons" id="close">close</span>
+    <nav>
+      <ul>
+        <li> <a href="./index.html" class="header-link hover">Cool Wave Project とは</a></li>
+        <li> <a href="./parasol.html" class="header-link hover">立ち向かう方法を知る</a></li>
+        <li> <a href="./shareSNS.html" class="header-link hover">記録を共有する</a></li>
+        <li> <a href="./shadow_request.html" class="header-link hover">影を要請する</a></li>
+      </ul>
+    </nav>
+  </div>
+
+
   <div class="hero-container">
-    <div class="text-content">
+    <div class="text-content" data-aos-duration="500">
       <p><span class="highlight">Cool Wave Project は、</span></p>
+    </div>
+    <div class="text-content">
       <p><span class="highlight">全東京都民による</span> </p>
+    </div>
+    <div class="text-content">
       <p><span class="highlight">熱中症へ立ち向かうムーブメントである。</span> </p>
     </div>
-    <div class="call-to-action">
-      <a href="#" class="call-title hover">熱中症に立ち向かう
-        <img src="images/arrow.png" alt="矢印" class="arrow-image"></a>
-    </div>
+  </div>
+
+  <div class="call-to-action">
+    <a href="#" class="call-title">熱中症に立ち向かう</a>
+    <img src="images/arrow.png" alt="矢印" class="arrow-image" style="width: 3.2rem; height: 3.2rem;">
   </div>
 
   <div class="map">
@@ -50,103 +74,154 @@
     </div>
   </div>
 
-  <section class="menu-container">
+  <section class="menu-container" data-aos-duration="500">
     <a href="#" class="intro-title hover">What is Cool Wave Project</a>
+  </section>
+
+  <section class="menu-container">
     <div class="what-cool-project">
-        <img src="./images/what_is_cool.png" alt="what_is_cool" id="what-cool-wave">
-        <img src="./images/cool-project-logo.png" alt="cool-project-logo" id="what-cool-project-logo">
+      <img src="./images/what_is_cool.png" alt="what_is_cool" id="what-cool-wave">
+      <img src="./images/cool-project-logo.png" alt="cool-project-logo" id="what-cool-project-logo">
     </div>
   </section>
 
   <section class="menu-container">
-    <h1 class="menu-title bigFont"><span class="highlight hover">さぁ熱中症に立ち</span></h1>
-    <h1 class="menu-title bigFont"><span class="highlight hover">向かおう</span></h1>
-  </section>
-
-  <section class="menu-container">
-    <h1 class="menu-text">立ち向かう方法を知る</h1>
     <div class="menu-paragraph">
-      <p>立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る立ち向かう方法を知る</p>
+      <p>
+        自治体による熱中症対策は必ずしも効果的でない。
+      </p>
+      <p>
+        例えばクーリングシェルターとして、
+        自治体の施設ではなく商業施設を利用する市民が多い。
+        加えて、ウェブの熱中症対策情報は、アクセスしないとわからない。
+        つまり、公共の熱中症対策が一方通行になってしまい、市民の必要性に基づいた施策が十分でないことが課題である。
+      </p>
+      <p>本プロジェクトでは、上記の課題を解決するための特設サイトを提案する。</p>
+      <p>
+        具体的には、市民が正しい熱中症対策を学び、自身の対策を共有・拡散でき、自治体に対策を要請できる特設サイトである。
+        我々が提案する特設サイトには下記3点の機能がある。
+      </p>
+      <p>
+        1.今いる場所の熱中症警戒レベルがわかる機能<br>
+        2.自身の熱中症対策を共有し、SNSと連携して拡散できる機能<br>
+        3.公共による熱中症対策（遮光シェードやクーリングシェルターの設置等）が必要だと感じた場所を、自治体に報告できる機能
+      </p>
+      <p>
+        上記3点の機能を用いて、自治体と都民を双方向につないで、都民の主体的な活動を推進すると共に、市民の必要性に基づいた施策が行えるようにする。
+      </p>
+
     </div>
+  </section>
+
+
+  <div class="hero-container">
+    <div class="text-content">
+      <p><span class="highlight">さぁ熱中症に立ち</span></p>
+    </div>
+    <div class="text-content">
+      <p><span class="highlight">向かおう</span></p>
+    </div>
+  </div>
+
+  <section class="menu-container" data-aos-duration="500">
+    <h1 class="menu-text">立ち向かう方法を知る</h1>
   </section>
 
   <div class="howto-container">
-    <div class="item hover">
-      <img src="./images/image01.png" alt="横断歩道">
+    <div class="item">
+      <div class="img-wrapper hover">
+        <img class="picture hover" src="./images/image01.png" alt="横断歩道">
+      </div>
       <p>熱中症予防のための日傘利用の啓発</p>
     </div>
     <div>
-      <div class="item hover">
-        <img src="./images/image02.png" alt="扇風機">
+      <div class="item">
+        <div class="img-wrapper hover">
+          <img class="picture hover" src="./images/image02.png" alt="扇風機">
+        </div>
         <p>扇風機を使用の際に気をつけることは？...</p>
-
       </div>
-      <div class="item hover">
-        <img src="./images/image03.png" alt="水のペットボトル">
+      <div class="item">
+        <div class="img-wrapper hover">
+          <img class="picture hover" src="./images/image03.png" alt="水のペットボトル">
+        </div>
         <p>熱中症対策のポイントは...</p>
       </div>
     </div>
   </div>
 
   <section class="menu-container">
-    <a href="#" class="intro-title reversed hover">もっと見る<img src="/images/arrow.png" alt="矢印" class="arrow-image"></a>
-    <div class="menu-paragraph">
-      <p>もっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見るもっと見る</p>
-    </div>
-    <!-- <div style="width:400px; height:400px;  background-color:#fb00ff;  margin: 20px; margin: 10px auto;">画像</div> -->
+    <a href="#" class="intro-title reversed hover">もっと見る
+      <img src="/images/arrow.png" alt="矢印" class="arrow-image"></a>
   </section>
 
-  <section class="menu-container">
+
+
+  <section class="menu-container" data-aos-duration="500">
     <h1 class="menu-text">記録を共有する</h1>
-    <div class="menu-paragraph">
-      <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
-      <p>記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する記録を共有する</p>
-    </div>
-
-    <div class="img-lists">
-      <div class="item hover">
-        <img class="record" src="./images/image02.png" alt="">
-        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-      </div>
-      <div class="item hover">
-        <img class="record" src="./images/image02.png" alt="">
-        <p>bbbbbbbbbbbb</p>
-      </div>
-      <div class="item hover">
-        <img class="record" src="./images/image02.png" alt="">
-        <p>cccccccccccccc</p>
-      </div>
-      <div class="item hover">
-        <img class="record" src="./images/image02.png" alt="">
-        <p>ldkfnglndflnkgsldknfgklsjndflkngs,lijynhbgfvlkdnflk</p>
-      </div>
-
-    </div>
   </section>
+
+
+  <div class="img-lists">
+    <div class="item">
+      <div class="img-wrapper hover">
+        <img class="record" src="./images/softcream.png" alt="softcream">
+      </div>
+      <p>墨田区にある体を冷やすソフトクリーム</p>
+    </div>
+    <div class="item">
+      <div class="img-wrapper hover">
+        <img class="record" src="./images/yukata.png" alt="yukata">
+      </div>
+      <p>日傘をもって浅草の散策</p>
+    </div>
+    <div class="item ">
+      <div class="img-wrapper hover">
+        <img class="record" src="./images/cap.png" alt="cap">
+      </div>
+      <p>熱中症予防のために新しい帽子の購入</p>
+    </div>
+    <div class="item">
+      <div class="img-wrapper hover">
+        <img class="record" src="./images/waterbottle.png" alt="waterbottle">
+      </div>
+      <p>長時間冷たい温度を保つ水筒</p>
+    </div>
+  </div>
+
 
   <section class="menu-container">
     <a href="#" class="intro-title reversed hover">共有する<img src="/images/arrow.png" alt="矢印" class="arrow-image"></a>
   </section>
 
+
+
   <section class="menu-container">
     <h1 class="menu-text hover">影を要請する</h1>
-    <div class="menu-paragraph">
-      <p>影を要請する影を要請する影を要請する影を要請する影を要請する影を要請する影を要請する影を要請する影を要請する</p>
-    </div>
     <div class="img-lists">
-      <div class="item hover">
-        <img class="record" src="./images/image02.png" alt="">
-        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+      <div class="item">
+        <div class="img-wrapper hover" id="recommend">
+          <img class="record" id="orangutan" src="./images/saru.png" alt="orangutan">
+        </div>
+        <p>太陽動物オラウータンの日陰炸裂展示場に設置するサンシェードの要請</p>
       </div>
-      <div class="item hover">
-        <img class="record" src="./images/image02.png" alt="">
-        <p>bbbbbbbbbbbb</p>
+      <div class="item">
+        <div class="img-wrapper hover">
+          <img class="record" src="./images/baseball.png" alt="baseball">
+        </div>
+        <p>野球チームが休憩の際に使用するテントの要請</p>
       </div>
-      <div class="item hover">
-        <img class="record" src="./images/image02.png" alt="">
-        <p>ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</p>
+      <div class="item">
+        <div class="img-wrapper hover">
+          <img class="record" src="./images/rose.png" alt="rose">
+        </div>
+        <p>日光を浴びすぎて弱った植物を救ってください！</p>
       </div>
     </div>
+  </section>
+
+  <section class="menu-container">
+    <a href="#" class="intro-title reversed hover">要請する<img src="/images/arrow.png" alt="矢印" class="arrow-image"></a>
   </section>
 
   <footer>
@@ -164,10 +239,12 @@
     </div>
   </footer>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="aos-master/dist/aos.js"></script>
   <script src="./js/const.js"></script> <!-- JavaScriptファイルを外部から読み込む -->
   <script src="./js/map.js"></script> <!-- JavaScriptファイルを外部から読み込む -->
   <script src="./js/mapPinLoder.js"></script>
-  <script></script>
+  <script src="./js/animation.js"></script>
+  <script src="./js/script_sp.js"></script>
 </body>
 
 </html>

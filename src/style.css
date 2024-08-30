@@ -2,15 +2,15 @@
 
 /* common */
 :root {
-  /* --large-font-size: 32pt; */
-  --large-font-size: 3rem;
-  /* --normal-font-size: 16pt; */
-  --normal-font-size: 1rem;
+  --large-font-size: 32pt;
+  /* --large-font-size: 2rem; */
+  --normal-font-size: 16pt;
+  /* --normal-font-size: 1rem; */
   --main-color: #ccc;
   --font-color: #010937;
   --font-family: 'Noto Sans JP', sans-serif;
   --font-weight-bold: 900;
-  --XL-font-size: 3rem;
+  --XL-font-size: 64pt;
 }
 
 * {
@@ -23,16 +23,18 @@
 }
 
 
+
 html {
   margin: 0;
   padding: 0;
 }
 
+
 body {
   margin: 0;
   padding: 0;
-  padding-bottom: 10rem;
   background-color: var(--main-color);
+
   /* フッターの高さ以上の値を設定 */
 }
 
@@ -50,17 +52,18 @@ a {
 img {
   width: 100%;
   height: 100%;
-  vertical-align: text-bottom;
-  object-fit: cover;
+
 }
 
 .hover:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
   /* 影を追加 */
 }
 
 .item:hover {
   transform: scale(1.01);
+
 }
 
 header {
@@ -69,15 +72,16 @@ header {
   width: 100%;
   z-index: 100;
   box-sizing: border-box;
-  padding: 2rem;
   position: sticky;
   background-color: var(--main-color);
+  margin: 0;
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 
 .header-left {
@@ -101,116 +105,64 @@ header {
   font-size: 1rem;
 }
 
-
-#map {
-  height: 50rem;
-  width: 90%;
-  margin: 0 auto;
-  z-index: 10;
-}
-.map{
-  text-align: center;
-}
-
-#main-map{
-  position: relative;
-  display: block;
-}
-
-#sub-map {
-  height: 25vh;
-  width: 40vh;
-  position: absolute;
-  bottom: 30px;
-  right: 120px;
-  border: 4px solid #333;
-  z-index: 99;
-  background-color: #ccc;
-  box-shadow: 4px 4px;
-}
-
-.custom-icon .circle {
-  background-color: black;
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-  display: inline-block;
-  position: relative;
-  animation: pulse 1.5s infinite; /* アニメーションを適用 */
+.hero-container{
+  overflow: hidden;
+  padding-top: 4rem;
 }
 
 
-@keyframes pulse {
-  0% {
-      transform: scale(1);
-      opacity: 1;
-  }
-  50% {
-      transform: scale(1.5); /* 拡大 */
-      opacity: 0.7;
-  }
-  100% {
-      transform: scale(1);
-      opacity: 1;
-  }
+
+#what-cool-wave {
+  margin: 0;
+  max-width: 70%;
+  margin-left: 1rem;
 }
 
-.vertical-line {
-  width: 3rem;
-  height: 6rem;
-  background-color: #fb00ff;
-  position: absolute;
-  top: 0;
-  left: 2rem;
-}
-
-#what-cool-project-logo{
-  position: absolute;
-  width: 55%;
-  left: 40%;
-  height: 30%;
-  
-}
-
-#what-cool-wave{
-  width: 70%;
-}
-
-.what-cool-project{
+.what-cool-project {
   width: 100%;
-  margin-top: 30px;
-  margin-left: 10px;
+  margin-top: 1rem;
+  max-width: 100%;
 }
 
-.hero-container {
-  padding-left: 2rem;
-}
 
+.text-content {
+  /* position: relative; */
+  margin-top: 1rem;
+}
 
 .text-content .highlight {
-  font-size: var(--large-font-size);
+  font-size: var(--XL-font-size);
   padding-left: 2rem;
 }
 
+.highlight::after {
+  content: '';
+  display: block; /* ブロック要素として表示 */
+}
 
-
-.bigFont .highlight {
-  font-size: var(--large-font-size);
+.bigFont {
+  font-size: var(--XL-font-size);
 }
 
 .highlight {
   background-color: #010937;
   color: #F5F3F3;
+
 }
+
+
 
 .call-to-action {
   display: flex;
   align-items: center;
   margin-top: 2rem;
+  padding-left: 2rem;
+  text-decoration:underline;
 }
 
 .call-title {
-  font-size: var(--large-font-size);
+  font-size: var(--XL-font-size);
+  margin-bottom: 1rem;
 }
 
 .under-line {
@@ -218,8 +170,8 @@ header {
 }
 
 .arrow-image {
-  width: 4rem;
-  height: 4rem;
+  width: var(--large-font-size);
+  height: var(--large-font-size);
 }
 
 
@@ -231,7 +183,11 @@ header {
   margin: 0;
   padding: 0;
   margin-top: 3rem;
+  max-width: 100%;
+  overflow: hidden;
 }
+
+
 
 .menu-title {
   font-size: var(--large-font-size);
@@ -241,11 +197,17 @@ header {
 .menu-paragraph {
   margin: 2rem auto;
   text-align: left;
+  display: flex;
+  flex-direction: column;
   word-wrap: break-word;
-  width: 50%;
+  width: 30%;
+  border: 0.5rem solid var(--font-color);
+  gap: 2rem;
+  padding: 1rem;
 }
 
 .menu-text {
+  position: relative;
   width: 60%;
   height: 10%;
   padding: 1rem;
@@ -255,16 +217,56 @@ header {
   font-size: var(--large-font-size);
 }
 
+.menu-text::after {
+  /* 疑似要素で四角形を作成 */
+  content: '';
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  width: calc(100% + 1.1rem);
+  /* 横幅を 1rem ずつ大きく */
+  height: 90%;
+  /* 縦幅を 1rem ずつ大きく */
+  border: var(--font-color) solid 0.5rem;
+  border-left: none;
+  z-index: -1;
+  /* .menu-container の後ろに配置 */
+}
+
+.menu-text::after:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 .intro-title {
   width: 60%;
   height: 10%;
   font-size: var(--large-font-size);
+  position: relative;
+  background-color: var(--main-color);
   border-bottom: 0.5rem solid #010937;
   border-top: 0.5rem solid #010937;
   border-right: 0.5rem solid #010937;
   text-align: right;
-  padding: 1rem;
+  padding: 0.8rem;
   padding-right: 1rem;
+  margin-bottom: 2rem;
+}
+
+.intro-title::after {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  width: calc(100% - 1rem);
+  height: 100%;
+  z-index: -1;
+  background-color: var(--font-color);
+}
+
+
+
+.intro-title::after:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .intro-title.reversed {
@@ -275,30 +277,43 @@ header {
   padding-left: 1rem;
 }
 
-.howto-container {
-  width: calc(100% - 10rem);
-  display: grid;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
-  margin: 0 auto;
+.intro-title.reversed::after {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  left: 1rem;
+  width: calc(100% - 1rem);
+  height: 100%;
+  z-index: -1;
+  background-color: var(--font-color);
+}
+
+.intro-title.reversed::after:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 
+.howto-container {
+  width: calc(100% - 10rem);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  gap: 2rem;
+  max-width: 100%;
+  overflow: hidden;
+}
 
 
 
 .item {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
   text-align: left;
-}
-
-.item.p {
+  position: relative;
   margin: 1rem;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .img-lists {
@@ -309,8 +324,9 @@ header {
   justify-content: center;
   align-items: flex-start;
   gap: 2rem;
+  /* overflow-x: auto; */
+  overflow: hidden;
 }
-
 
 .item p {
   width: 20rem;
@@ -318,17 +334,37 @@ header {
   font-size: var(--normal-font-size);
 }
 
+.img-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.img-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 1.5rem;
+  left: 1rem;
+  width: calc(100% + 0.5rem);
+  height: 100%;
+  z-index: -1;
+  background-color: var(--font-color);
+  margin-bottom: 1rem;
+}
+
+#recommend{
+  width: 100%;
+}
+
 .record {
   width: 20rem;
   height: 20rem;
 }
 
-
 /* footer */
 footer {
-  margin: 0;
-  position: fixed;
-  bottom: 0;
+  margin-top: 10rem;
+  position: sticky;
   left: 0;
   width: 100%;
   background-color: var(--main-color);
@@ -364,8 +400,13 @@ footer {
   padding: 1rem;
 }
 
-
 /* -----shareSNS.html----- */
+article{
+    display: flex;
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
+}
+
 #SNS-menu {
   position: absolute;
   top: 0;
@@ -387,8 +428,9 @@ footer {
 .SNS-container {
   display: inline-block;
   position: relative;
-  margin-top: 1rem;
-  width: 100%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  width: 80%;
 }
 
 .SNS-title {
@@ -400,8 +442,8 @@ footer {
   top: 50%;
   left: 0;
   border: 5px solid black;
-  border-left: none;
   display: inline-block;
+  padding: 1rem;
   z-index: 10;
 }
 
@@ -415,7 +457,7 @@ footer {
   width: 6rem;
 }
 
-.bk-img {
+.right-image {
   position: relative;
   border: 0.5rem solid black;
   width: 50%;
@@ -425,73 +467,18 @@ footer {
   margin-right: 4rem;
 }
 
+.left-image {
+  position: relative;
+  border: 0.5rem solid black;
+  width: 30%;
+  height: auto;
+  object-fit: cover;
+  float: left;
+  margin-right: 4rem;
+}
+
 form {
   margin: 1rem;
-}
-
-
-/* mapのpin周り */
-#map {
-  height: 500px;
-}
-
-.custom-pin {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 5px solid;
-  box-sizing: border-box;
-}
-
-.custom-pin::after {
-  content: '';
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 20px solid;
-}
-
-.inner-image {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.inner-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-/* ピンク色のピン */
-.pin-fa00c8 {
-  background-color: #FA00C8;
-  border-color: #FA00C8;
-}
-
-.pin-fa00c8::after {
-  border-top-color: #FA00C8;
-}
-
-/* 青色のピン */
-.pin-010937 {
-  background-color: #010937;
-  border-color: #010937;
-}
-
-.pin-010937::after {
-  border-top-color: #010937;
 }
 
 
@@ -505,69 +492,9 @@ form {
 }
 
 
-@media (max-width: 768px) {
-
-  /* 画面幅が768px以下の場合 */
-  :root {
-    /* --large-font-size: 32pt; */
-    --large-font-size: 1.5rem;
-    /* --normal-font-size: 16pt; */
-    --normal-font-size: 1rem;
-    --main-color: #ccc;
-    --font-color: #010937;
-    --font-family: 'Noto Sans JP', sans-serif;
-    --font-weight-bold: 900;
-  }
-
-  .bigFont .highlight {
-    font-size: 2rem;
-  }
-
-  .intro-title {
-    width: 100%;
-    font-size: var(--large-font-size);
-    border: 0.5rem solid #010937;
-    padding-right: 1rem;
-    text-align: right;
-  }
-
-  .intro-title.reversed {
-    width: 100%;
-    margin-left: auto;
-    text-align: left;
-    font-size: var(--large-font-size);
-    padding-left: 1rem;
-  }
-
-  .menu-text {
-    width: 100%;
-    height: 10%;
-    padding: 1rem;
-    background-color: #010937;
-    color: #F5F3F3;
-    text-align: center;
-  }
-
-  img {
-    width: 90%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .arrow-image {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .vertical-line {
-    display: none;
-  }
-
-  header {
-    display: none;
-  }
-
-  footer {
-    display: none;
-  }
+::-webkit-scrollbar { /* Chrome, Safari, Opera */
+  display: none;
 }
+
+scrollbar-width: none; /* Firefox */
+-ms-overflow-style: none;  /* IE and Edge */

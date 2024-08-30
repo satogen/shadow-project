@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="aos-master/dist/aos.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./mapLayout.css">
+    <link rel="stylesheet" href="./animation.css">
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            max-width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+
+        }
+
+        .image-section {
+            flex: 1;
+            margin-right: 30px;
+            border: 0.5rem solid black;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .text-section {
+            flex: 2;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+    </style>
+    <title>Cool Wave Project</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <img src="./images/cool-project-logo.png" alt="cool-project-logo" style="height: 60px; padding: 5px">
+            </div>
+            <nav class="header-right">
+                <a href="./index.html" class="header-link hover">Cool Wave Project とは</a>
+                <a href="./parasol.html" class="header-link hover">立ち向かう方法を知る</a>
+                <a href="./shareSNS.html" class="header-link hover">記録を共有する</a>
+                <a href="./shadow_request.html" class="header-link hover">影を要請する</a>
+            </nav>
+        </div>
+    </header>
+
+    <article>
+        <section class="SNS-container">
+            <div class="right-image img-wrapper hover">
+                <img class="picture hover" src="./images/image01.png" alt="">
+            </div>
+            <section class="menu-container" id="SNS-menu">
+                <h1 class="menu-title bigFont"><span class="highlight">熱中症予防のための</span></h1>
+                <h1 class="menu-title bigFont"><span class="highlight">日傘利用告発</span></h1>
+            </section>
+        </section>
+    </article>
+
+    <div class="container">
+        <div class="image-section">
+            <img src="./images/parasol02.png" alt="日傘">
+        </div>
+        <div class="text-section">
+            <h2>熱中症対策に必須の日傘の効果とは</h2>
+            <p>
+                日傘は熱中症対策として非常に効果的です。まず、直射日光を遮ることで体温の上昇を防ぎます。特に頭部や顔、肩などの体の上部が日光にさらされると体温が急激に上がる原因となりますが、日傘を使うことでこれを防ぐことができます。また、多くの日傘には紫外線カット機能が備わっており、肌を紫外線から守るだけでなく、体温の上昇も抑えることができます。さらに、日傘を使うことで直射日光に当たるよりも体感温度が2~3度ほど低くなると言われており、これは熱中症予防に非常に効果的です。日傘を使用することで体の表面温度が下がり、汗の蒸発が促進されるため、体温の調節も効率的に行われます。さらに、日傘を差すことで涼しさを感じるという心理的効果もあり、暑さに対するストレスが軽減され、熱中症のリスクが低減されます。これらの理由から、日傘は夏の暑い日や長時間の外出時に非常に有効な熱中症対策となります。
+            </p>
+        </div>
+    </div>
+
+    <section class="menu-container" data-aos="fade-left">
+        <a href="#" class="intro-title reversed hover">要請する<img src="/images/arrow.png" alt="矢印"
+                class="arrow-image"></a>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <a class="hover" href="#">discord</a>
+                <a class="hover" href="#">X(旧Twitter)</a>
+                <a class="hover" href="#">Facebook</a>
+                <a class="hover" href="#">Instagram</a>
+                <a class="hover" href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-right">
+                <p>都知事杯 オープンデータハッカソン</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="aos-master/dist/aos.js"></script>
+    <script src="./js/animation.js"></script>
+    <script>
+        
+    </script>
+</body>
+
+</html>

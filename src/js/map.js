@@ -126,7 +126,7 @@ function createGeoJsonLayer(geojsonData) {
 }
 
 function reflect_map(){
-    fetch('/geojson/tokyo.geojson')
+    fetch('/geojson/tokyo-mini.json')
     .then(response => response.json())
     .then(geojson => {
         
